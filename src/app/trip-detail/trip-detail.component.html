@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Trip Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="trip">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ trip.title }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Description:</strong> {{ trip.description }}</p>
+      <p><strong>Date:</strong> {{ trip.date }}</p>
+      <p><strong>Location:</strong> Latitude: {{ trip.location.lat }}, Longitude: {{ trip.location.lng }}</p>
+      <ion-grid>
+        <ion-row>
+          <ion-col *ngFor="let photo of trip.photos">
+            <ion-img [src]="photo"></ion-img>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
